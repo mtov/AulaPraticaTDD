@@ -1,26 +1,26 @@
 # Aula Prática de TDD
 
-** Prof. Marco Tulio Valente **
+**Prof. Marco Tulio Valente**
 
-Nesta aula prática, iremos realizar uma sessão de uso de TDD. Para isso, usaremos exatamente o mesmo exemplo do livro de TDD, do Kent Beck. Mais especificamente, iremos reproduzir o exemplo do Cap. 1 até o Cap. 11.
+Nesta aula prática, iremos simular uma sessão de uso de TDD. Para isso, usaremos o mesmo exemplo do livro de TDD, do Kent Beck. Especificamente, iremos reproduzir o exemplo do Cap. 1 até o Cap. 11.
 
-Você deverá seguir todos os passos abaixo e sempre rodar também os testes, após compilar cada versão do código.
+Você deverá seguirtodos os passos abaixo e sempre rodar também os testes, após compilar cada versão do código. Tente fazer o exercício no mindset de TDD.
 
-Para facilitar, os passos são numerados da seguinte forma: (1): Vermelho, (2): Verde, (3): Refactor. Isto é, exatamente os mesmos estados de desenvolvimento baseado em TDD (mais detalhes nos slides).
 
 Instruções:
 
 * Primeiro, crie um repositório no GitHub
 
-* Vá seguindo o roterio.
+* Vá seguindo o roteiro. Para facilitar, os passos são itemizadaos da seguinte forma: (1): Vermelho, (2): Verde, (3): Refactor. Isto é, exatamente os mesmos estados de desenvolvimento baseado em TDD (mais detalhes nos slides).
 
-* Nos trechos marcados com COMMIT (no roteiro abaixo), dê um commit e um push. Isso será usado no momento da correção, para garantirmos que seguiu a sequência do roteiro, passo-a-passo.
+* Nos passos marcados com COMMIT, dê um commit e um push. Isso será usado no momento da correção, para garantirmos que seguiu a sequência do roteiro, passo-a-passo.
 
 # Roteiro
 
 
-* (2.1) exatamente o teste e a classe do slide 69
+* (2.1) Seja a seguinte classe e teste (exatamente o teste e a classe do slide 69):
 
+```java
     class Dollar {
         int amount = 10;
         Dollar(int amount) {}			
@@ -32,8 +32,9 @@ Instruções:
         five.times(2);
         assertEquals(10, five.amount);
     }
+```
 
-(2.2)
+* (2.2)
 
 class Dollar {
    int amount;
