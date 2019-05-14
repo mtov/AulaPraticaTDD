@@ -18,7 +18,7 @@ Instruções:
 # Roteiro
 
 
-* (2.1) Seja a seguinte classe e teste (exatamente o teste e a classe do slide 69):
+* (1) Seja a seguinte classe e seu teste (exatamente o teste e a classe vistos em sala de aula, no final dos slides de TDD):
 
 ```java
     class Dollar {
@@ -34,8 +34,9 @@ Instruções:
     }
 ```
 
-* (2.2)
+* (2) Dando uma implementação mais real para a classe Dollar:
 
+```java
 class Dollar {
    int amount;
    Dollar(int amount) {
@@ -45,9 +46,11 @@ class Dollar {
 	 amount= amount * multiplier;
    }
 }	
+```
 
-(1.1) Dollar tem que ser imutável
+* (1.1) Novo teste/feature: tornando Dollar imutável, i.e., operação como `times` retorna um novo objeto e não modifica o objecto corrente:
 
+```java
 public void testMultiplication() {
 	Dollar five = new Dollar(5);
 	Dollar product = five.times(2);
@@ -55,28 +58,35 @@ public void testMultiplication() {
 	product = five.times(3);
 	assertEquals(new Dollar(15), product);
 }
+```
 
-(1.2) Apenas um refactoring (no teste), para ficar menor:
+* (1.2) Apenas um refactoring (no teste), para ele ficar menor:
 
+```java
 public void testMultiplication() {
 	Dollar five = new Dollar(5);
 	assertEquals(new Dollar(10), five.times(2));
 	assertEquals(new Dollar(15), five.times(3));
 }
+```
 
-(1.3) Novo teste/feature: equals
+* (1.3) Novo teste/feature: método `equals`, para testar se dois `Dollar` são iguais
 
+```java
 public void testEquality() {
 	assertTrue(new Dollar(5).equals(new Dollar(5)));
 	assertFalse(new Dollar(5).equals(new Dollar(6)));
 }
+```
 
-(2.1) Implementando equals (em Dollar):
+* (2.1) Implementando `equals` (método da classe `Dollar):
 
+```java
 public boolean equals(Object object)  {
 	Dollar dollar = (Dollar) object;
      return amount == dollar.amount;
 }
+```
 
 (1) e (2): Novo teste/feature: classe Franc (Francos Suícos)
 
