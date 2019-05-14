@@ -124,80 +124,85 @@ class Money  {
 	Money money = (Money) object;
         return amount == money.amount;
 }
-
+```
 		
-
 * (3.2) Mais alguns testes, que vão passar:
 
+```java
 public void testEquality() {
    assertTrue(new Dollar(5).equals(new Dollar(5)));
    assertFalse(new Dollar(5).equals(new Dollar(6)));
    assertTrue(new Franc(5).equals(new Franc(5)));
    assertFalse(new Franc(5).equals(new Franc(6)));
 }
-
+```
 
 * Faça um **COMMIT & PUSH **
 
-(1) Mais um teste/feature (último assert abaixo): comparando Franc com 
-     Dollar
+* (1) Melhorando `testEquality` (só adicionando último `assert` abaixo), que compara `Franc` com `Dollar`.
 
+```java
 public void testEquality() {
-	assertTrue(new Dollar(5).equals(new Dollar(5)));
-	assertFalse(new Dollar(5).equals(new Dollar(6)));
-	assertTrue(new Franc(5).equals(new Franc(5)));
-	assertFalse(new Franc(5).equals(new Franc(6)));
-	assertFalse(new Franc(5).equals(new Dollar(5)));
+   assertTrue(new Dollar(5).equals(new Dollar(5)));
+   assertFalse(new Dollar(5).equals(new Dollar(6)));
+   assertTrue(new Franc(5).equals(new Franc(5)));
+   assertFalse(new Franc(5).equals(new Franc(6)));
+   assertFalse(new Franc(5).equals(new Dollar(5)));
 }
+```
 
+* (2) Agora `equals` verifica se as classes dos objetos comparados são iguais.
 
-(2) equals verifica também se classes são iguais
-
+```java
 class Money {
     ...
     public boolean equals(Object object) {
         Money money = (Money) object;
-        return amount == money.amount
-				&& getClass().equals(money.getClass());
+        return amount == money.amount && getClass().equals(money.getClass());
 	}
 }				
+```
 
-(3) Refactoring: times agora retorna Money (era Dollar e Franc)
+* (3) Refactoring: `times` agora retorna `Money` (era `Dollar` e `Franc`). Basicamente, estamos preparando o terreno para daqui a pouco remover essas classes. O código delas é muito parecido; e o objetivo do passo de Refactor em TDD é principalmente remover duplicação.
 
+```java
 class Dollar {
     ...
    Money times(int multiplier)  {
-       return new Dollar(amount * multiplier);
+      return new Dollar(amount * multiplier);
     }								
 }    
 
 class Franc {
     ...
-   Money times(int multiplier)  {
+    Money times(int multiplier)  {
        return new Franc(amount * multiplier);
     }								
 }    
+```
 
-// (1) e (2) Novo teste/feature - método fábrica - Money.dollar
-// Objetivo: começar a eliminar a classe Dollar
+* (1) e (2) Novo teste/feature - método fábrica, chamado `Money.dollar`; mais uma passo para começar a eliminar a classe `Dollar`.
 
+```java
 public void testMultiplication() {
-	 Money five = Money.dollar(5);
-	 assertEquals(Money.dollar(10), five.times(2));
-	 assertEquals(Money.dollar(15), five.times(3));
+   Money five = Money.dollar(5);
+   assertEquals(Money.dollar(10), five.times(2));
+   assertEquals(Money.dollar(15), five.times(3));
 }
+```
 
-// veja que tivemos que tornar Money abstrata, para
-compilar (com o método times abstrato)
+Adicionalemnte, veja que tivemos que tornar `Money` abstrata, para compilar (com o método `times` abstrato):
 
+```java
 abstract class Money {
     ...
    static Dollar dollar(int amount)  {
        return new Dollar(amount);
-	}
+   }
 	
-	abstract Money times(int multiplier);  
+   abstract Money times(int multiplier);  
 }
+```
     
 (1) e (2): Novo teste/feature - Money.franc (fábrica
 de Francos). Para entender melhor, o objetivo é
