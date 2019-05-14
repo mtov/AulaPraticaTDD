@@ -22,19 +22,21 @@ Instruções:
 
 ```java
     class Dollar {
-        int amount = 10;
-        Dollar(int amount) {}			
-        void times(int multiplier) {}
+       int amount = 10;
+       Dollar(int amount) {}			
+       void times(int multiplier) {}
     }	
 
     public void testMultiplication() {
-        Dollar five = new Dollar(5);
-        five.times(2);
-        assertEquals(10, five.amount);
+       Dollar five = new Dollar(5);
+       five.times(2);
+       assertEquals(10, five.amount);
     }
 ```
 
-* (2) Dando uma implementação mais real para a classe Dollar:
+* Faça um **COMMIT & PUSH **
+
+* (2) Dando uma implementação mais real para a classe `Dollar`:
 
 ```java
 class Dollar {
@@ -43,20 +45,20 @@ class Dollar {
       this.amount= amount;
    }
    void times(int multiplier) {
-	 amount= amount * multiplier;
+      amount= amount * multiplier;
    }
 }	
 ```
 
-* (1.1) Novo teste/feature: tornando Dollar imutável, i.e., operação como `times` retorna um novo objeto e não modifica o objecto corrente:
+* (1.1) Novo teste/feature: tornando `Dollar` imutável, i.e., uma operação como `times` retorna um novo objeto e não modifica o objecto corrente:
 
 ```java
 public void testMultiplication() {
-	Dollar five = new Dollar(5);
-	Dollar product = five.times(2);
-	assertEquals(10, product.amount);
-	product = five.times(3);
-	assertEquals(new Dollar(15), product);
+   Dollar five = new Dollar(5);
+   Dollar product = five.times(2);
+   assertEquals(10, product.amount);
+   product = five.times(3);
+   assertEquals(new Dollar(15), product);
 }
 ```
 
@@ -64,9 +66,9 @@ public void testMultiplication() {
 
 ```java
 public void testMultiplication() {
-	Dollar five = new Dollar(5);
-	assertEquals(new Dollar(10), five.times(2));
-	assertEquals(new Dollar(15), five.times(3));
+   Dollar five = new Dollar(5);
+   assertEquals(new Dollar(10), five.times(2));
+   assertEquals(new Dollar(15), five.times(3));
 }
 ```
 
@@ -74,65 +76,68 @@ public void testMultiplication() {
 
 ```java
 public void testEquality() {
-	assertTrue(new Dollar(5).equals(new Dollar(5)));
-	assertFalse(new Dollar(5).equals(new Dollar(6)));
+   assertTrue(new Dollar(5).equals(new Dollar(5)));
+   assertFalse(new Dollar(5).equals(new Dollar(6)));
 }
 ```
 
-* (2.1) Implementando `equals` (método da classe `Dollar):
+* (2.1) Implementando `equals` (método da classe `Dollar`):
 
 ```java
 public boolean equals(Object object)  {
-	Dollar dollar = (Dollar) object;
-     return amount == dollar.amount;
+   Dollar dollar = (Dollar) object;
+   return amount == dollar.amount;
 }
 ```
 
-(1) e (2): Novo teste/feature: classe Franc (Francos Suícos)
+* (1) e (2): Novo teste/feature: classe `Franc` (além de dólar, agora temos uma classe para armazenar francos suíços); `Franc` é basicamente uma cópia de Dollar, com os devidos ajustes de nomes.
 
+```java
 public void testFrancMultiplication() {
-	Franc five = new Franc(5);
-	assertEquals(new Franc(10), five.times(2));
-	assertEquals(new Franc(15), five.times(3));
+   Franc five = new Franc(5);
+   assertEquals(new Franc(10), five.times(2));
+   assertEquals(new Franc(15), five.times(3));
 }
 
 class Franc {   
     private int amount;					
     Franc(int amount) {      
-         this.amount= amount;
+       this.amount= amount;
     }					
     Franc times(int multiplier)  {      
-        return new Franc(amount * multiplier);					
+       return new Franc(amount * multiplier);					
     }   
     public boolean equals(Object object) {					
-        Franc franc = (Franc) object;      
-        return amount == franc.amount;					
+       Franc franc = (Franc) object;      
+       return amount == franc.amount;					
      }					
 }
+```
 
-(3.1) Refactor: criar superclasse Money; subir
-(pull up)
-"amount" para ela (protected) e também
-"equals" (com alguns ajustes no código)
+* (3.1) Refactor: vamos criar uma superclasse `Money`; subir `amount` para ela (como `protected`) e também subir `equals` (com alguns ajustes no código). Ou seja, ambos vão ser deletados das subclasses `Dollar` e `Franc` e movidos para `Money`. Depois, não esqueça de fazer `Dollar` e `Franc` herdarem de `Money`:	
 
+```java
 class Money  {
     protected int amount;
    
     public boolean equals(Object object)  {
-	    Money money = (Money) object;
+	Money money = (Money) object;
         return amount == money.amount;
 }
 
-Fazer Dollar e Franc herdar de Money			
+		
 
-(3.2) Mais alguns testes
+* (3.2) Mais alguns testes, que vão passar:
 
 public void testEquality() {
-	assertTrue(new Dollar(5).equals(new Dollar(5)));
-	assertFalse(new Dollar(5).equals(new Dollar(6)));
-	assertTrue(new Franc(5).equals(new Franc(5)));
-	assertFalse(new Franc(5).equals(new Franc(6)));
+   assertTrue(new Dollar(5).equals(new Dollar(5)));
+   assertFalse(new Dollar(5).equals(new Dollar(6)));
+   assertTrue(new Franc(5).equals(new Franc(5)));
+   assertFalse(new Franc(5).equals(new Franc(6)));
 }
+
+
+* Faça um **COMMIT & PUSH **
 
 (1) Mais um teste/feature (último assert abaixo): comparando Franc com 
      Dollar
