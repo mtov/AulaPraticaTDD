@@ -6,7 +6,7 @@ Objetivo: reproduzir uma sessão de desenvolvimento de software usando TDD (Test
 
 Para isso, usaremos o mesmo exemplo do livro de TDD, do Kent Beck. Especificamente, iremos reproduzir o exemplo do Cap. 1 até o Cap. 11 do livro (os capítulos são pequenos, com 3-4 páginas).
 
-Tente fazer o exercício no mindset de TDD. Se necessário, estudo antes o material visto em sala de aula.
+Faça o exercício com o mindset de TDD. Se necessário, estudo antes o material visto em sala de aula.
 
 
 Instruções:
