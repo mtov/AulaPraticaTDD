@@ -2,14 +2,14 @@
 
 **Prof. Marco Tulio Valente**
 
-Nesta aula prática, iremos simular uma sessão de uso de TDD. Para isso, usaremos o mesmo exemplo do livro de TDD, do Kent Beck. Especificamente, iremos reproduzir o exemplo do Cap. 1 até o Cap. 11.
+Nesta aula prática, iremos simular uma sessão de uso de TDD. Para isso, usaremos o mesmo exemplo do livro de TDD, do Kent Beck. Especificamente, iremos reproduzir o exemplo do Cap. 1 até o Cap. 11 deste livro (os capítulos são pequenos 2-3 páginas).
 
-Você deverá seguirtodos os passos abaixo e sempre rodar também os testes, após compilar cada versão do código. Tente fazer o exercício no mindset de TDD.
+Você deverá seguir todos os passos abaixo e sempre rodar os testes, após compilar cada versão do código. Tente fazer o exercício no mindset de TDD. Se necessário, estudo antes o material visto em sala de aula sobre TDD.
 
 
 Instruções:
 
-* Primeiro, crie um repositório no GitHub
+* Primeiro, crie um repositório no GitHub.
 
 * Vá seguindo o roteiro. Para facilitar, os passos são itemizadaos da seguinte forma: (1): Vermelho, (2): Verde, (3): Refactor. Isto é, exatamente os mesmos estados de desenvolvimento baseado em TDD (mais detalhes nos slides).
 
@@ -34,7 +34,7 @@ Instruções:
     }
 ```
 
-* Faça um **COMMIT & PUSH **
+* Faça um **COMMIT & PUSH**
 
 * (2) Dando uma implementação mais real para a classe `Dollar`:
 
@@ -50,7 +50,7 @@ class Dollar {
 }	
 ```
 
-* (1.1) Novo teste/feature: tornando `Dollar` imutável, i.e., uma operação como `times` retorna um novo objeto e não modifica o objecto corrente:
+* (1.1) Novo teste/feature: tornando `Dollar` imutável, i.e., agora, uma operação como `times` retorna um novo objeto e não modifica o objecto corrente:
 
 ```java
 public void testMultiplication() {
@@ -114,7 +114,7 @@ class Franc {
 }
 ```
 
-* (3.1) Refactor: vamos criar uma superclasse `Money`; subir `amount` para ela (como `protected`) e também subir `equals` (com alguns ajustes no código). Ou seja, ambos vão ser deletados das subclasses `Dollar` e `Franc` e movidos para `Money`. Depois, não esqueça de fazer `Dollar` e `Franc` herdarem de `Money`:	
+* (3.1) Refactor: vamos criar uma superclasse `Money`; subir `amount` para ela (como `protected`) e também subir `equals` (com alguns ajustes no código). Ou seja, ambos vão ser deletados das subclasses `Dollar` e `Franc` e movidos para `Money`. Depois, não se esqueça de fazer `Dollar` e `Franc` herdarem de `Money`:	
 
 ```java
 class Money  {
@@ -137,9 +137,9 @@ public void testEquality() {
 }
 ```
 
-* Faça um **COMMIT & PUSH **
+* Faça um **COMMIT & PUSH**
 
-* (1) Melhorando `testEquality` (só adicionando último `assert` abaixo), que compara `Franc` com `Dollar`.
+* (1) Melhorando `testEquality` (só adicionando último `assert`, no código abaixo), que compara `Franc` com `Dollar`.
 
 ```java
 public void testEquality() {
@@ -159,7 +159,7 @@ class Money {
     public boolean equals(Object object) {
         Money money = (Money) object;
         return amount == money.amount && getClass().equals(money.getClass());
-	}
+    }
 }				
 ```
 
@@ -204,40 +204,43 @@ abstract class Money {
 }
 ```
     
-(1) e (2): Novo teste/feature - Money.franc (fábrica
-de Francos). Para entender melhor, o objetivo é
-sumir com as classes Dollar e Franc (que já não
-estão mais sendo referenciadas nos testes)
+* (1) e (2): Novo teste/feature - `Money.franc` (fábrica de Francos). 
 
+```java
 public void testEquality() {
-	assertTrue(Money.dollar(5).equals(Money.dollar(5)));
-	assertFalse(Money.dollar(5).equals(Money.dollar(6)));
-	assertTrue(Money.franc(5).equals(Money.franc(5)));
-	assertFalse(Money.franc(5).equals(Money.franc(6)));
-	assertFalse(Money.franc(5).equals(Money.dollar(5)));
+   assertTrue(Money.dollar(5).equals(Money.dollar(5)));
+   assertFalse(Money.dollar(5).equals(Money.dollar(6)));
+   assertTrue(Money.franc(5).equals(Money.franc(5)));
+   assertFalse(Money.franc(5).equals(Money.franc(6)));
+   assertFalse(Money.franc(5).equals(Money.dollar(5)));
 }
 
 public void testFrancMultiplication() {
-	 Money five = Money.franc(5);
-	 assertEquals(Money.franc(10), five.times(2));
-	 assertEquals(Money.franc(15), five.times(3));
+   Money five = Money.franc(5);
+   assertEquals(Money.franc(10), five.times(2));
+   assertEquals(Money.franc(15), five.times(3));
 }
 
 class Money {
-    ...
+   ...
    static Money dollar(int amount)  {
-        return new Dollar(amount);
-	}
-	static Money franc(int amount) {
-        return new Franc(amount);
+      return new Dollar(amount);
+   }
+   
+   static Money franc(int amount) {
+      return new Franc(amount);
     }
 } 
-	
-(1) e (2): Novo teste/feature: currency() 	
+```
 
+* Faça um **COMMIT & PUSH**
+
+* (1) e (2): Novo teste/feature: `currency()` 	
+
+```java
 public void testCurrency() {
-	assertEquals("USD", Money.dollar(1).currency());
-	assertEquals("CHF", Money.franc(1).currency());
+   assertEquals("USD", Money.dollar(1).currency());
+   assertEquals("CHF", Money.franc(1).currency());
 }
 
 abstract class Money {
@@ -258,200 +261,211 @@ class Dollar extends Money {
         return "USD";
     }
 } 
+```
 
-(3.1): Refactor: adicionando um atributo currency, em Franc e Dollar
+* (3.1): Refactor: adicionando um atributo `currency`, em `Franc` e `Dollar`
 
+```java
 class Franc extends Money {
-     private String currency;
+   private String currency;
 	
-	Franc(int amount) {
-        this.amount = amount;
-		currency = "CHF";
-	}
-	String currency() {
-		return currency;
-	}
+   Franc(int amount) {
+      this.amount = amount;
+      currency = "CHF";
+   }
+   
+   String currency() {
+       return currency;
+   }
 }
 
 class Dollar extends Money {
-     private String currency;
+   private String currency;
 	
-	Dollar(int amount) {
-        this.amount = amount;
-		currency = "USD";
-	}
-	String currency() {
-		return currency;
-	}
+   Dollar(int amount) {
+      this.amount = amount;
+      currency = "USD";
+   }
+   
+   String currency() {
+      return currency;
+   }
 }
+```
 
-(3.2) Refactoring: "pull up" currency para Money
+* (3.2) Refactoring: subir `currency` para `Money` (como `protected`).
 
+```java
 abstract class Money {
-    ...
-    protected String currency;
-    ....
-    String currency() {
-		return currency;
-	}
+   ...
+   protected String currency;
+   ...
+   String currency() {
+      return currency;
+   }
 } 
 
 class Franc extends Money {	
-	Franc(int amount) {
-        this.amount = amount;
-	    currency = "CHF";
-	}
-	....
+   Franc(int amount) {
+      this.amount = amount;
+      currency = "CHF"; 
+   }
+   ...
 }
 
 class Dollar extends Money {
-	 Dollar(int amount)  {
-         this.amount = amount;
-		currency = "USD";
-	}
-	...
+   Dollar(int amount)  {
+      this.amount = amount;
+      currency = "USD";
+   }
+   ...
 }
+```
 
-(3.3.) Refactor: "times" agora retorna Money, tanto
-em Dollar, como em Franc
+* (3.3.) Refactor: `times` agora retorna `Money`, tanto em `Dollar`, como em `Franc`
 
+```java
 class Dollar {
     ...
    Money times(int multiplier)  {
-       return Money.dollar(amount * multiplier);
-    }								
+      return Money.dollar(amount * multiplier);
+   }								
 }    
 
 class Franc {
-    ...
+   ...
    Money times(int multiplier)  {
-       return Money.franc(amount * multiplier);
-    }								
+      return Money.franc(amount * multiplier);
+   }								
 }    
+```
 
-(3.4) Refactor: construtores ganham um parâmetro "currency"			
-	
+* (3.4) Refactor: construtores ganham um parâmetro `currency`			
+
+```java
 abstract class Money {
-    ...
+   ...
    static Money dollar(int amount)  {
-        return new Dollar(amount, "USD");
-	}
-	static Money franc(int amount) {
-        return new Franc(amount, "CHF");
-    }
+      return new Dollar(amount, "USD");
+   }
+   static Money franc(int amount) {
+      return new Franc(amount, "CHF");
+   }
 } 
 
 class Franc extends Money {
-     private String currency;
+   private String currency;
 	
-	Franc(int amount, String currency) {
-         this.amount = amount;
-		this.currency = currency;
-	}
+   Franc(int amount, String currency) {
+      this.amount = amount;
+      this.currency = currency;
+   }
 }
 
 class Dollar extends Money {
-     private String currency;
+   private String currency;
 	
-	 Dollar(int amount, String currency)  {
-         this.amount = amount;
-		this.currency = currency;
-	}
+   Dollar(int amount, String currency)  {
+      this.amount = amount;
+      this.currency = currency;
+   }
 }
+```
 
-(3.5) Pull Up construtores
+* (3.5) Subir construtores para `Money`
 
+```java
 abstract class Money {
    private String currency; 
 
    static Money dollar(int amount)  {
-        return new Dollar(amount, "USD");
-	}
+      return new Dollar(amount, "USD");
+   }
 
-	static Money franc(int amount) {
-        return new Franc(amount, "CHF");
-    }
+   static Money franc(int amount) {
+      return new Franc(amount, "CHF");
+   }
 
-    	Money(int amount, String currency) {
-        this.amount = amount;
-	    this.currency = currency;
-	}
+   Money(int amount, String currency) {
+      this.amount = amount;
+      this.currency = currency;
+   }
 }
 
 class Franc extends Money {	
-	Franc(int amount, String currency) {
-        super(amount, currency);
-     }
+   Franc(int amount, String currency) {
+      super(amount, currency);
+   }
      
-     Money times(int multiplier)  {
-        return Money.franc(amount * multiplier);
-     }
+   Money times(int multiplier)  {
+      return Money.franc(amount * multiplier);
+   }
 }
 
 class Dollar extends Money {	
-	 Dollar(int amount, String currency)  {
-         super(amount, currency);
-	 }
+   Dollar(int amount, String currency)  {
+      super(amount, currency);
+   }
 	
-	Money times(int multiplier)  {
-        return Money.dollar(amount * multiplier);
-     }
+   Money times(int multiplier)  {
+      return Money.dollar(amount * multiplier);
+   }
 }
+```
 
-(1) e (2) Novo teste/feature: comparando Money e Franc
+* Faça um **COMMIT & PUSH**
 
+* (1) e (2) Novo teste/feature: comparando `Money` e `Franc`
+
+```java
 public void testDifferentClassEquality() {
-	assertTrue(new Money(10, "CHF").equals(new Franc(10, "CHF")));
+   assertTrue(new Money(10, "CHF").equals(new Franc(10, "CHF")));
 }
+```
 
-Veja que a implementação envolve:
+A implementação inclui ainda: tornar `Money` uma classe concreta (remover `abstract`);
+modificar o `equals` (com isso, moedas de classes diferente
+podem ser iguais, basta que `amount` e `currency` sejam iguais.
+subir `times`, com alguns ajustes, para `Money`.
 
-- tornar Money uma classe concreta (remover "abstract"):
-- modificar o equals (com isso, moedas de classes diferente
-podem ser iguais, basta que "amount" e "currency" sejam iguais.
-- pull up "times", com alguns ajustes, para Money
-
+```java
 class Money {
     ...
     static Money dollar(int amount)  {
-        return new Dollar(amount, "USD");
-	}
+       return new Dollar(amount, "USD");
+    }
 	
-	static Money franc(int amount) {
-        return new Franc(amount, "CHF");
+    static Money franc(int amount) {
+       return new Franc(amount, "CHF");
     }
     
-    	Money(int amount, String currency) {
-        this.amount = amount;
-	    this.currency = currency;
-	}
-	
-	public boolean equals(Object object) {
-		Money money = (Money) object;
-         return amount == money.amount
-			&& currency().equals(money.currency());
+    Money(int amount, String currency) {
+       this.amount = amount;
+       this.currency = currency;
     }
 	
-	Money times(int multiplier) {
-         return new Money(amount * multiplier, currency);
-	}
+    public boolean equals(Object object) {
+       Money money = (Money) object;
+       return amount == money.amount && currency().equals(money.currency());
+    }
+	
+    Money times(int multiplier) {
+       return new Money(amount * multiplier, currency);
+    }
 }
+```
 
-(3) Refactor: 
+* (3) Refactor: remover classes `Dollar` e `Franc`; alterar os seguinte teste:
 
-- remover classesDollar e Franc 
-
-- alterar os seguinte teste, conforme abaixo:
-
+```java
 public void testEquality() {
-	 assertTrue(Money.dollar(5).equals(Money.dollar(5)));
-	 assertFalse(Money.dollar(5).equals(Money.dollar(6)));
-	 assertFalse(Money.franc(5).equals(Money.dollar(5)));
+   assertTrue(Money.dollar(5).equals(Money.dollar(5))); 
+   assertFalse(Money.dollar(5).equals(Money.dollar(6)));
+   assertFalse(Money.franc(5).equals(Money.dollar(5)));
 }	
+```
 
-- Remover: 
-testDifferentClassEquality()
+E remover  `testDifferentClassEquality()` e `testFrancMultiplication()` 
 
-- Remover:
-testFrancMultiplication() 
+* Faça um **COMMIT & PUSH**
 
