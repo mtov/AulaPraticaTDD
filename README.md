@@ -103,9 +103,9 @@ public void testFrancMultiplication() {
 }
 
 class Franc {   
-    private int amount;					
-    Franc(int amount) {      
-       this.amount= amount;
+   private int amount;					
+   Franc(int amount) {      
+      this.amount= amount;
     }					
     Franc times(int multiplier)  {      
        return new Franc(amount * multiplier);					
@@ -121,11 +121,12 @@ class Franc {
 
 ```java
 class Money  {
-    protected int amount;
+   protected int amount;
    
-    public boolean equals(Object object)  {
-	Money money = (Money) object;
-        return amount == money.amount;
+   public boolean equals(Object object)  {
+      Money money = (Money) object;
+      return amount == money.amount;
+   }   
 }
 ```
 		
@@ -158,11 +159,11 @@ public void testEquality() {
 
 ```java
 class Money {
-    ...
-    public boolean equals(Object object) {
-        Money money = (Money) object;
-        return amount == money.amount && getClass().equals(money.getClass());
-    }
+   ...
+   public boolean equals(Object object) {
+      Money money = (Money) object;
+      return amount == money.amount && getClass().equals(money.getClass());
+   }
 }				
 ```
 
@@ -170,17 +171,17 @@ class Money {
 
 ```java
 class Dollar {
-    ...
+   ...
    Money times(int multiplier)  {
       return new Dollar(amount * multiplier);
-    }								
+   }								
 }    
 
 class Franc {
-    ...
-    Money times(int multiplier)  {
-       return new Franc(amount * multiplier);
-    }								
+   ...
+   Money times(int multiplier)  {
+      return new Franc(amount * multiplier);
+   }								
 }    
 ```
 
@@ -198,9 +199,9 @@ Adicionalmente, veja que tivemos que tornar `Money` abstrata, para compilar (com
 
 ```java
 abstract class Money {
-    ...
+   ...
    static Dollar dollar(int amount)  {
-       return new Dollar(amount);
+      return new Dollar(amount);
    }
 	
    abstract Money times(int multiplier);  
@@ -247,21 +248,21 @@ public void testCurrency() {
 }
 
 abstract class Money {
-    ...
-    abstract String currency();
+   ...
+   abstract String currency();
 } 
 
 class Franc extends Money {
-    ...
-    String currency() {
-        return "CHF";
-    }
+   ...
+   String currency() {
+      return "CHF";
+   }
 } 
 
 class Dollar extends Money {
     ...
     String currency() {
-        return "USD";
+       return "USD";
     }
 } 
 ```
@@ -278,7 +279,7 @@ class Franc extends Money {
    }
    
    String currency() {
-       return currency;
+      return currency;
    }
 }
 
@@ -329,7 +330,7 @@ class Dollar extends Money {
 
 ```java
 class Dollar {
-    ...
+   ...
    Money times(int multiplier)  {
       return Money.dollar(amount * multiplier);
    }								
@@ -351,6 +352,7 @@ abstract class Money {
    static Money dollar(int amount)  {
       return new Dollar(amount, "USD");
    }
+   
    static Money franc(int amount) {
       return new Franc(amount, "CHF");
    }
@@ -433,28 +435,28 @@ subir `times`, com alguns ajustes, para `Money`.
 
 ```java
 class Money {
-    ...
-    static Money dollar(int amount)  {
-       return new Dollar(amount, "USD");
-    }
+   ...
+   static Money dollar(int amount)  {
+      return new Dollar(amount, "USD");
+   }
 	
-    static Money franc(int amount) {
-       return new Franc(amount, "CHF");
-    }
+   static Money franc(int amount) {
+      return new Franc(amount, "CHF");
+   }
     
-    Money(int amount, String currency) {
-       this.amount = amount;
-       this.currency = currency;
-    }
+   Money(int amount, String currency) {
+      this.amount = amount;
+      this.currency = currency;
+   }
 	
-    public boolean equals(Object object) {
-       Money money = (Money) object;
-       return amount == money.amount && currency().equals(money.currency());
-    }
+   public boolean equals(Object object) {
+      Money money = (Money) object;
+      return amount == money.amount && currency().equals(money.currency());
+   }
 	
-    Money times(int multiplier) {
-       return new Money(amount * multiplier, currency);
-    }
+   Money times(int multiplier) {
+      return new Money(amount * multiplier, currency);
+   }
 }
 ```
 
