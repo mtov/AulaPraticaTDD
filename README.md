@@ -19,6 +19,8 @@ Instruções:
 
 * Nos passos marcados com **COMMIT & PUSH**, dê um commit e um push, no seu repositório. Isso será usado no momento da correção, para garantir que seguiu a sequência do roteiro, passo-a-passo.
 
+* Caso tenha dúvidas, você pode consultar também o livro; que explica os passos com mais detalhes.
+
 # Roteiro
 
 
