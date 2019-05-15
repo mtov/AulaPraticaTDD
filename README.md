@@ -191,7 +191,7 @@ public void testMultiplication() {
 }
 ```
 
-Adicionalemnte, veja que tivemos que tornar `Money` abstrata, para compilar (com o método `times` abstrato):
+Adicionalmente, veja que tivemos que tornar `Money` abstrata, para compilar (com o método `times` abstrato):
 
 ```java
 abstract class Money {
