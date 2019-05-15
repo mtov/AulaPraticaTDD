@@ -17,7 +17,7 @@ Instruções:
 
 * Após cada passo, compile e rode os testes. 
 
-* Nos passos marcados com COMMIT, dê um commit e um push. Isso será usado no momento da correção, para garantir que seguiu a sequência do roteiro, passo-a-passo.
+* Nos passos marcados com **COMMIT & PUSH**, dê um commit e um push, no seu repositório. Isso será usado no momento da correção, para garantir que seguiu a sequência do roteiro, passo-a-passo.
 
 # Roteiro
 
