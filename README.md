@@ -2,7 +2,7 @@
 
 **Prof. Marco Tulio Valente**
 
-Nesta aula prática, iremos simular uma sessão de uso de TDD. 
+Objetivo: reproduzir uma sessão de desenvolvimento de software usando TDD (Test-Driven Development).
 
 Para isso, usaremos o mesmo exemplo do livro de TDD, do Kent Beck. Especificamente, iremos reproduzir o exemplo do Cap. 1 até o Cap. 11 do livro (os capítulos são pequenos 3-4 páginas).
 
