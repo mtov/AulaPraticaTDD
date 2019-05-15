@@ -4,9 +4,9 @@
 
 Objetivo: reproduzir uma sessão de desenvolvimento de software usando TDD (Test-Driven Development).
 
-Para isso, usaremos o mesmo exemplo do livro de TDD, do Kent Beck. Especificamente, iremos reproduzir o exemplo do Cap. 1 até o Cap. 11 do livro (os capítulos são pequenos 3-4 páginas).
+Para isso, usaremos o mesmo exemplo do livro de TDD, do Kent Beck. Especificamente, iremos reproduzir o exemplo do Cap. 1 até o Cap. 11 do livro (os capítulos são pequenos, com 3-4 páginas).
 
-Tente fazer o exercício no mindset de TDD. Se necessário, estudo antes o material visto em sala de aula sobre TDD.
+Tente fazer o exercício no mindset de TDD. Se necessário, estudo antes o material visto em sala de aula.
 
 
 Instruções:
@@ -17,7 +17,7 @@ Instruções:
 
 * Após cada passo, compile e rode os testes. 
 
-* Nos passos marcados com **COMMIT & PUSH**, dê um commit e um push, no seu repositório. Isso será usado no momento da correção, para garantir que seguiu a sequência do roteiro, passo-a-passo.
+* Nos passos marcados com **COMMIT & PUSH**, dê um commit e um push no seu repositório. Isso será usado no momento da correção, para garantir que seguiu a sequência do roteiro, passo-a-passo.
 
 * Caso tenha dúvidas, você pode consultar também o livro; que explica os passos com mais detalhes.
 
