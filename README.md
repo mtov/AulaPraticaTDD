@@ -76,7 +76,7 @@ public void testMultiplication() {
 }
 ```
 
-* (1.3) Novo teste/feature: método `equals`, para testar se dois `Dollar` são iguais
+* (1.3) Novo teste/feature: método `equals`, para testar se dois `Dollar` são iguais.
 
 ```java
 public void testEquality() {
@@ -118,7 +118,7 @@ class Franc {
 }
 ```
 
-* (3.1) Refactor: vamos criar uma superclasse `Money`; subir `amount` para ela (como `protected`) e também subir `equals` (com alguns ajustes no código). Ou seja, ambos vão ser deletados das subclasses `Dollar` e `Franc` e movidos para `Money`. Depois, não se esqueça de fazer `Dollar` e `Franc` herdarem de `Money`:	
+* (3.1) Refactor: vamos criar uma superclasse `Money`; subir `amount` para ela (como `protected`) e também subir `equals` (com alguns ajustes no código). Ou seja, ambos vão ser deletados das subclasses `Dollar` e `Franc` e movidos para `Money`. Depois, não se esqueça de fazer `Dollar` e `Franc` herdarem de `Money`.	
 
 ```java
 class Money  {
@@ -239,7 +239,7 @@ class Money {
 
 * Faça um **COMMIT & PUSH**
 
-* (1) e (2): Novo teste/feature: `currency()` 	
+* (1) e (2): Novo teste/feature: `currency()`. 	
 
 ```java
 public void testCurrency() {
@@ -267,7 +267,7 @@ class Dollar extends Money {
 } 
 ```
 
-* (3.1): Refactor: adicionando um atributo `currency`, em `Franc` e `Dollar`
+* (3.1): Refactor: adicionando um atributo `currency`, em `Franc` e `Dollar`.
 
 ```java
 class Franc extends Money {
@@ -326,7 +326,7 @@ class Dollar extends Money {
 }
 ```
 
-* (3.3.) Refactor: `times` agora retorna `Money`, tanto em `Dollar`, como em `Franc`
+* (3.3.) Refactor: `times` agora retorna `Money`, tanto em `Dollar`, como em `Franc`.
 
 ```java
 class Dollar {
@@ -344,7 +344,7 @@ class Franc {
 }    
 ```
 
-* (3.4) Refactor: construtores ganham um parâmetro `currency`			
+* (3.4) Refactor: construtores ganham um parâmetro `currency`.			
 
 ```java
 abstract class Money {
@@ -376,7 +376,7 @@ class Dollar extends Money {
 }
 ```
 
-* (3.5) Subir construtores para `Money`
+* (3.5) Subir construtores para `Money`:
 
 ```java
 abstract class Money {
@@ -419,7 +419,7 @@ class Dollar extends Money {
 
 * Faça um **COMMIT & PUSH**
 
-* (1) e (2) Novo teste/feature: comparando `Money` e `Franc`
+* (1) e (2) Novo teste/feature: comparando `Money` e `Franc`.
 
 ```java
 public void testDifferentClassEquality() {
@@ -469,7 +469,7 @@ public void testEquality() {
 }	
 ```
 
-E remover  `testDifferentClassEquality()` e `testFrancMultiplication()` 
+E remover  `testDifferentClassEquality()` e `testFrancMultiplication()`.
 
 * Faça um **COMMIT & PUSH**
 
