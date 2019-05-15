@@ -2,18 +2,22 @@
 
 **Prof. Marco Tulio Valente**
 
-Nesta aula prática, iremos simular uma sessão de uso de TDD. Para isso, usaremos o mesmo exemplo do livro de TDD, do Kent Beck. Especificamente, iremos reproduzir o exemplo do Cap. 1 até o Cap. 11 deste livro (os capítulos são pequenos 2-3 páginas).
+Nesta aula prática, iremos simular uma sessão de uso de TDD. 
 
-Você deverá seguir todos os passos abaixo e sempre rodar os testes, após compilar cada versão do código. Tente fazer o exercício no mindset de TDD. Se necessário, estudo antes o material visto em sala de aula sobre TDD.
+Para isso, usaremos o mesmo exemplo do livro de TDD, do Kent Beck. Especificamente, iremos reproduzir o exemplo do Cap. 1 até o Cap. 11 do livro (os capítulos são pequenos 3-4 páginas).
+
+Tente fazer o exercício no mindset de TDD. Se necessário, estudo antes o material visto em sala de aula sobre TDD.
 
 
 Instruções:
 
 * Primeiro, crie um repositório no GitHub.
 
-* Vá seguindo o roteiro. Para facilitar, os passos são itemizadaos da seguinte forma: (1): Vermelho, (2): Verde, (3): Refactor. Isto é, exatamente os mesmos estados de desenvolvimento baseado em TDD (mais detalhes nos slides).
+* Vá seguindo o roteiro, passo a passo. Para facilitar, os passos são itemizadaos da seguinte forma: (1): Vermelho, (2): Verde, (3): Refactor. Isto é, exatamente os mesmos estados de desenvolvimento baseado em TDD (mais detalhes nos slides).
 
-* Nos passos marcados com COMMIT, dê um commit e um push. Isso será usado no momento da correção, para garantirmos que seguiu a sequência do roteiro, passo-a-passo.
+* Após cada passo, compile e rode os testes. 
+
+* Nos passos marcados com COMMIT, dê um commit e um push. Isso será usado no momento da correção, para garantir que seguiu a sequência do roteiro, passo-a-passo.
 
 # Roteiro
 
