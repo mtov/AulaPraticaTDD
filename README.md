@@ -64,6 +64,16 @@ public void testMultiplication() {
    assertEquals(new Dollar(15), product);
 }
 ```
+Precisamos alterar `Dolar.times()` para compilar o novo teste:
+
+```java
+class Dollar {
+   ...
+   Dollar times(int multiplier) {
+      return new Dollar(amount * multiplier);
+   }
+}
+```
 
 * (1.2) Apenas um refactoring (no teste), para ele ficar menor:
 
@@ -72,6 +82,15 @@ public void testMultiplication() {
    Dollar five = new Dollar(5);
    assertEquals(new Dollar(10), five.times(2));
    assertEquals(new Dollar(15), five.times(3));
+}
+```
+
+* (1.2.1) `Dollar` é a única classe usando a variável `amount` após as mudanças no teste. Logo, podemos alterar o seu modificador de acesso para `private`:
+
+```java
+class Dollar {
+   private int amount;
+   ...
 }
 ```
 
@@ -359,7 +378,6 @@ abstract class Money {
 } 
 
 class Franc extends Money {
-   private String currency;
 	
    Franc(int amount, String currency) {
       this.amount = amount;
@@ -368,7 +386,6 @@ class Franc extends Money {
 }
 
 class Dollar extends Money {
-   private String currency;
 	
    Dollar(int amount, String currency)  {
       this.amount = amount;
@@ -430,7 +447,7 @@ public void testDifferentClassEquality() {
 
 A implementação inclui ainda: tornar `Money` uma classe concreta (remover `abstract`);
 modificar o `equals` (com isso, moedas de classes diferente
-podem ser iguais, basta que `amount` e `currency` sejam iguais.
+podem ser iguais, basta que `amount` e `currency` sejam iguais;
 subir `times`, com alguns ajustes, para `Money`.
 
 ```java
@@ -460,7 +477,7 @@ class Money {
 }
 ```
 
-* (3) Refactor: remover classes `Dollar` e `Franc`; alterar os seguinte teste:
+* (3) Refactor: Alterar o seguinte teste:
 
 ```java
 public void testEquality() {
@@ -469,6 +486,23 @@ public void testEquality() {
    assertFalse(Money.franc(5).equals(Money.dollar(5)));
 }	
 ```
+
+Remover classes `Dollar` e `Franc`. Alterar as referências na classe `Money`:
+
+```java
+class Money {
+   static Money dollar(int amount)  {
+      return new Money(amount, "USD");
+   }
+
+   static Money franc(int amount) {
+      return new Money(amount, "CHF");
+   }
+   ...
+}
+```
+
+
 
 E remover  `testDifferentClassEquality()` e `testFrancMultiplication()`.
 
