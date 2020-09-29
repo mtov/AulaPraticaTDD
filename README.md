@@ -4,9 +4,11 @@
 
 Objetivo: reproduzir uma sessão de desenvolvimento de software usando TDD (Test-Driven Development).
 
-Para isso, usaremos o mesmo exemplo do livro de TDD, do Kent Beck. Especificamente, iremos reproduzir o exemplo do Cap. 1 até o Cap. 11 do livro (os capítulos são pequenos, com 3-4 páginas).
+Para isso, usaremos o mesmo exemplo do livro clássico de TDD, do Kent Beck. Especificamente, iremos reproduzir o exemplo do Cap. 1 até o Cap. 11 do livro (os capítulos são pequenos, com 3-4 páginas).
 
-Faça o exercício com o mindset de TDD. Se necessário, estude antes o material visto em sala de aula. Caso tenha dúvidas, você pode consultar também o livro; que explica os passos com mais detalhes.
+Faça o exercício com o modelo mental de TDD. Se necessário, estude antes o material visto em sala de aula. Caso tenha dúvidas, você pode consultar também o livro; que explica os passos com mais detalhes.
+
+O exemplo está em Java, mas a sintaxe é familiar mesmo para aqueles que nunca programaram na linguagem. Infelizmente, não é possível fazer em uma outra linguagem, pois a correção será automática. Você pode usar uma IDE Java (Eclipse, NetBeans, IntelliJ) ou então uma IDE online (como repl.it).
 
 Instruções:
 
@@ -17,6 +19,9 @@ Instruções:
 * Após cada passo, compile e rode os testes. 
 
 * Nos passos marcados com **COMMIT & PUSH**, dê um commit e um push no seu repositório. Isso será usado no momento da correção, para garantir que seguiu a sequência do roteiro, passo-a-passo.
+
+* **Importante**: quando terminar, responda à seguinte [issue](https://github.com/mtov/AulaPraticaTDD/issues/9), informando a URL do seu repositório e seu nome (caso contrário, seu trabalho não será corrigido).
+
 
 # Roteiro
 
