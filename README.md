@@ -16,13 +16,13 @@ Instruções:
 
 * Primeiro, crie um repositório no GitHub.
 
-* Vá seguindo o roteiro, passo a passo. Para facilitar, os passos são itemizadaos da seguinte forma: (1): Vermelho, (2): Verde, (3): Refactor. Isto é, exatamente os mesmos estados de desenvolvimento baseado em TDD (mais detalhes nos slides).
+* Vá seguindo o roteiro, passo a passo. Para facilitar, os passos são itemizadaos da seguinte forma: (1): Vermelho, (2): Verde, (3): Refactor. Isto é, exatamente os mesmos estados de desenvolvimento baseado em TDD.
 
 * Após cada passo, compile e rode os testes. 
 
 * Nos passos marcados com **COMMIT & PUSH**, dê um commit e um push no seu repositório. Isso será usado no momento da correção, para garantir que seguiu a sequência do roteiro, passo-a-passo.
 
-* **Importante**: quando terminar, responda à seguinte [issue](https://github.com/mtov/AulaPraticaTDD/issues/9), informando a URL do seu repositório e seu nome (caso contrário, seu trabalho não será corrigido).
+* **Importante**: quando terminar, responda à seguinte [issue](https://github.com/mtov/AulaPraticaTDD/issues/9), informando a URL do seu repositório e seu nome (**caso contrário, seu trabalho não será corrigido**).
 
 
 # Roteiro
